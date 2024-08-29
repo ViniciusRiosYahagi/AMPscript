@@ -1,14 +1,15 @@
 %%[
-  var @date
-  set @date = AttributeValue("RenewalDate")
-  set @date = Format(@date,"MMMM dd, yyyy","","pt-br")
+  VAR @fullName, @renewalDate, @renewalFormattedDate
+  SET @fullName = Concat(AttributeValue("FirstName"), " ", AttributeValue("LastName"))
+  SET @renewalDate = AttributeValue("RenewalDate")
+  SET @renewalFormattedDate = Format(@RenewalDate, "MMMM dd, yyyy", "", "pt-br")
 ]%%
 
 
-<h3>Hello %%firstname%% %%lastname%%,</h3>
+<h3>Hello %%=v(@fullName)=%%,</h3>
 <p>
   We hope you are enjoying your membership at our health club. 
-  We wanted to remind you that your membership will expire on <strong>%%=v(@date)=%%</strong>
+  We wanted to remind you that your membership will expire on <strong>%%=v(@renewalFormattedDate)=%%</strong>
 </p>
 <p>
   Do not let your membership expire! 
