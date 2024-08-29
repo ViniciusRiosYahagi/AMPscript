@@ -1,13 +1,14 @@
 %%[
   var @date
-  set @date = FormatDate(yyyy,MM,dd)
+  set @date = AttributeValue("RenewalDate")
+  set @date = Format(@date,"MMMM dd, yyyy")
 ]%%
 
 
-<p>Hello <em>%%firstname%% %%lastname%%</em>,</p>
+<h3>Hello %%firstname%% %%lastname%%,</h3>
 <p>
   We hope you are enjoying your membership at our health club. 
-  We wanted to remind you that your membership will expire on FormatDate(yyyy,MM,dd)
+  We wanted to remind you that your membership will expire on <strong>%%=v(@date)=%%</strong>
 </p>
 <p>
   Do not let your membership expire! 
@@ -18,6 +19,5 @@
 </p>
 <p>
   Best regards,
-  <em>The Health Club</em>
+  <h3>The Health Club</h3>
 </p>
-
