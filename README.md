@@ -1,1 +1,1 @@
-Esse repositorio, contém meus aprendizados da linguagem AMPscript, baseado no desafio "AMPscript30" a prosposta é criar projetos usando AMPscript todos os dias no total de 30 dias seguindos, todos os desafios são enviados diariamente por email.
+Já havia estudado AMPscript antes, mas resolvi voltar a estudar novamente com o desafio AMPscript30.
