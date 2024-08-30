@@ -1,5 +1,12 @@
 %%[
+  SET @city = AttributeValue("city")
+  SET @warehouseCity = "Halifax"
 
+  IF @city == @warehouseCity THEN
+      SET @shippingOffer = "Free shipping on all local orders in Halifax!"
+  ELSE
+      SET @shippingOffer = "Use code BLUESHIFT to receive 10% off your entrie order!"
+  ENDIF
 ]%%
 
 
@@ -9,14 +16,9 @@
 
 <p>
   We are excited to offer you a special deal on our products.
-  Today only, you can receive the following offer: Free shipping on all local
-  orders in Halifax!
 </p>
 
-<p>
-  Today only, you can receive the following offter: Get 10% off with the code
-  BlueShift
-</p>
+<strong>%%=v(@shippingOffer)=%%</strong>
 
 <p>
   Best regards,
