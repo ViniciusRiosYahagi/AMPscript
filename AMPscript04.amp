@@ -1,0 +1,27 @@
+%%[
+  VAR @firstname, @lastName, @fullname, @text, @email, @inEmail
+  SET @firstname = AttributeValue("FirstName")
+  SET @lastName = AttributeValue("LastName")
+  SET @fullname = Concat(@firstname," ",@lastName)
+  SET @email = AttributeValue("Email")
+  SET @inEmail = IsEmailAddress(@email)
+
+  SET @text = IIf(
+  @inEmail, 
+  "Thank you for referring a friend to our perks program",
+  "Please provide us with a valid referral email address"
+  )
+
+]%%
+
+
+<p>Hello, %%=v(@fullname)=%%</p>
+
+<p>
+  %%=v(@text)=%%
+</p>
+
+<p>
+  Best regards,
+  Wanderer Outdoor Equipment
+</p>
