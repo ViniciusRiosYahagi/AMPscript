@@ -1,0 +1,36 @@
+%%[
+  VAR @birthdate, @today, @nextBirthday, @age, @discount
+  SET @birthdate = AttributeValue("Birthdate")
+  SET @today = SystemDateToLocalDate(Now())
+  SET @age = DateDiff(@birthdate, @today, "Y")
+  SET @nextBirthday = DateAdd(@birthdate, @age "Y")
+
+  IF @nextBirthday < Now() THEN
+    SET @nextBirthday = DateAdd(@nextBirthday, "1", "Y")
+  ENDIF
+
+  IF DateDiff(@today, @nextBirthday, "D") <= 7 THEN
+      SET @discount = "15%"
+  ELSEIF DateDiff(@today, @nextBirthday, "D") <= 14  THEN
+      SET @discount = "10%"
+  ELSE
+      SET @discount = "5%"
+  ENDIF
+]%%
+
+<p>
+  Hello,
+</p>
+
+<p>
+  To celebrate your birthday, we are offering you a special discount!
+</p>
+
+<p>
+  You will receive a %%=v(@discount)=%% discount on your next purchase.
+</p>
+
+<p>
+  Best regards,
+  Props Flora
+</p>
